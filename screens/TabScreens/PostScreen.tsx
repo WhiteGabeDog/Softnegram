@@ -58,6 +58,10 @@ class PostScreen extends React.Component {
         }
     };
 
+    uploadPost = () => {
+        this.props.navigation.navigate('PostCheckout')
+    }
+
     render(){
         return (
             <SafeAreaView style={  {flex:1,}}>

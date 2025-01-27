@@ -17,3 +17,7 @@ export const updateNextPhoto = (input) => {
         }
     }
 }
+
+export const updateDescription = (input) => {
+    return {type:'UPDATE_DESCRIPTION', payload: input}
+}

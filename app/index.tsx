@@ -1,15 +1,26 @@
-import { Text, View } from "react-native";
+import { Component } from 'react'
+import React from 'react';
 
-export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
-    </View>
-  );
+import { thunk } from 'redux-thunk';
+import  reducer  from '@/reducers/reducer';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { SwitchNavigator } from '@/navigation/LoginNavigator';
+
+const store = createStore( reducer, applyMiddleware(thunk) )
+
+
+export default class App extends React.Component {
+
+  
+
+  render(){
+    return (
+      <Provider store={store}>
+        <SwitchNavigator/>
+      </Provider>
+    );
+  }
 }
+
+

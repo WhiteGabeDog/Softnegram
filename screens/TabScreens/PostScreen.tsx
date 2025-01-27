@@ -4,6 +4,7 @@ import { uploadPhoto } from './../../actions/index';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getUser } from '@/actions/users';
+import { updateNextPhoto } from '@/actions/post';
 
 const screenHeight = Dimensions.get('window').height
 const screenWidth = Dimensions.get('window').width
@@ -77,7 +78,15 @@ class PostScreen extends React.Component {
                             <Text style={{color:'white', fontSize:40}}>+</Text>
                         </View>
                     </TouchableOpacity>
-                    
+
+                    {
+                    this.props.post.photos.map(e => 
+                            <View>
+                                <Image source={{uri:e}} style={{width:95, height:90 }}/>
+                            </View>
+                        
+                    )
+                    }
                 </View>
 
             </SafeAreaView>
@@ -86,11 +95,12 @@ class PostScreen extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getUser, uploadPhoto }, dispatch)
+    return bindActionCreators({ getUser, uploadPhoto, updateNextPhoto }, dispatch)
 }
 const mapStateToProps = (state) => {
     return{
         user: state.user,
+        post: state.post
     }
 }
 

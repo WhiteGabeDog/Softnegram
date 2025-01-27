@@ -69,26 +69,25 @@ class PostScreen extends React.Component {
                         <Text style={{margin:10, fontWeight:'bold', fontSize:22, color:'blue'}}>Upload</Text>
                     </TouchableOpacity>
                 </View>
-
+                
                 <View style={{width:screenWidth, height:360, }}>
-                    
+                    {
+                    (this.state.urlChosen == undefined)?
                     <TouchableOpacity style={{width:screenWidth, height:360, justifyContent:'center',alignItems:'center'}}  
                     onPress={()=> this.openLibrary()}>
                         <View style={{width:65, height:65, borderRadius:65/2, backgroundColor:'rgba(0,0,0,0.1)', justifyContent:'center', alignItems:'center'}}>
                             <Text style={{color:'white', fontSize:40}}>+</Text>
                         </View>
                     </TouchableOpacity>
+                    :
+                    <TouchableOpacity
+                    // onPress={alert(this.state.urlChosen)}
+                    style={{width:screenWidth, height:360,}}>
+                        <Image source={{uri: this.state.urlChosen }} style={{width:screenWidth, height:360,}}/>
+                    </TouchableOpacity>
 
-                    {
-                    this.props.post.photos.map(e => 
-                            <View>
-                                <Image source={{uri:e}} style={{width:95, height:90 }}/>
-                            </View>
-                        
-                    )
                     }
                 </View>
-
             </SafeAreaView>
         );
     }

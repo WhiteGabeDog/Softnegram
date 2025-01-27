@@ -30,7 +30,7 @@ class PostCheckout extends React.Component {
                         alignSelf: 'center',
                     }}
                 />
-
+                <Text style={{fontSize:10}}>If you use a phone, you can swipe to preview images before post..</Text>
                 <ScrollView
                     horizontal={true}
                     pagingEnabled={true}
@@ -48,7 +48,9 @@ class PostCheckout extends React.Component {
                             />
                         ))}
                 </ScrollView>
+                
             </View>
+            
         );
     }
 }

@@ -50,6 +50,11 @@ export default class PostComponent extends Component {
                         </View>
                     </View>
                 </View>
+                <Text style={{fontWeight:'bold', marginHorizontal:10, marginTop:0 }}>{this.props.item.likes.length} likes</Text>
+                <View style={{flexDirection:'row'}}>
+                    <Text style={{ fontWeight: 'bold', marginLeft: 10 }}>{item.username} </Text>
+                    <Text>{item.description}</Text>
+                </View>
             </View>
         );
     }

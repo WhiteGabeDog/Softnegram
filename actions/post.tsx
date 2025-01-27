@@ -19,7 +19,36 @@ export const updateNextPhoto = (input) => {
         }
     }
 }
-
+export const likePost = (post) => {
+    return async (dispatch) => {
+      try {
+        const uid = auth.currentUser.uid;
+  
+        const postRef = doc(db, "posts", post.id);
+        await updateDoc(postRef, {
+          likes: arrayUnion(uid),
+        });
+      } catch (e) {
+        alert(e.message);
+      }
+    };
+  };
+  
+  export const unlikePost = (post) => {
+    return async (dispatch) => {
+      try {
+        const uid = auth.currentUser.uid;
+  
+        const postRef = doc(db, "posts", post.id);
+        await updateDoc(postRef, {
+          likes: arrayRemove(uid),
+        });
+      } catch (e) {
+        alert(e.message);
+      }
+    };
+  };
+  
 export const getPosts = (numberOfPosts) => {
 	return async (dispatch, getState) => {
 		const postsRef = collection(db, 'posts');

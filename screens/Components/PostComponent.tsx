@@ -13,6 +13,23 @@ export default class PostComponent extends Component {
         numLike: 0,
         liked: undefined
     }
+    likePost = () => {
+        if (this.state.liked) {
+            // If the user has already liked, unlike the post
+            this.setState({
+                liked: false,
+                numLike: this.state.numLike - 1
+            });
+            this.props.unlikePost(this.props.item);
+        } else {
+            // If the user hasn't liked, like the post
+            this.setState({
+                liked: true,
+                numLike: this.state.numLike + 1
+            });
+            this.props.likePost(this.props.item);
+        }
+    };
     render() {
         const { item } = this.props;
         const { liked } = this.state;
@@ -45,12 +62,17 @@ export default class PostComponent extends Component {
                     </ScrollView>
                     <View style={{width:screenWidth, flexDirection:'row',justifyContent:'space-between'}}>
                         <View style={{justifyContent:'center',flexDirection:'row',alignItems:'center'}}>
-                            <Text>Likes</Text>
+                            <TouchableOpacity
+                            onPress={()=>this.likePost()}>
+                                <Image source={require('../../assets/images/heart.png')} style={{height:20,width:20,margin:10}}/>   
+                            </TouchableOpacity>
                             <text>Comment</text>
                         </View>
                     </View>
                 </View>
-                <Text style={{fontWeight:'bold', marginHorizontal:10, marginTop:0 }}>{this.props.item.likes.length} likes</Text>
+                <Text style={{fontWeight:'bold', marginHorizontal:10, marginTop:0 }}>{
+                this.props.item.likes.length + this.state.numLike
+                } likes</Text>
                 <View style={{flexDirection:'row'}}>
                     <Text style={{ fontWeight: 'bold', marginLeft: 10 }}>{item.username} </Text>
                     <Text>{item.description}</Text>

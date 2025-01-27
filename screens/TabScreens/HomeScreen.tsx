@@ -4,7 +4,7 @@ import { FlatList, Text, View, Button, TouchableOpacity, TextInput, Dimensions, 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { getUser } from '@/actions/users';
-import { getPosts } from '@/actions/post';
+import { getPosts,likePost,unlikePost } from '@/actions/post';
 
 import PostComponent from '@/screens/Components/PostComponent';
 
@@ -28,6 +28,8 @@ class HomeScreen extends React.Component {
                       <PostComponent
                       item={item}
                       user={this.props.user}
+                      likePost={(item)=>this.props.likePost(item)}
+                      unlikePost={(item)=>this.props.unlikePost(item)}
                       />
                   )}
                   />
@@ -38,7 +40,7 @@ class HomeScreen extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return bindActionCreators({ getUser, getPosts }, dispatch)
+    return bindActionCreators({ getUser,getPosts, likePost, unlikePost}, dispatch)
 }
 const mapStateToProps = (state) => {
     return{

@@ -15,7 +15,7 @@ class Login extends React.Component {
   render(){
         return (
             <View style={{   flex: 1,  backgroundColor: 'white',  alignItems: 'center',}}>
-              <Text style={{fontSize:35, fontFamily:'logo-font', marginVertical:60}}>Notaninstaclone</Text>
+              <Text style={{fontSize:35, fontFamily:'logo-font', marginVertical:60}}>Softnegram</Text>
               <View style={{marginTop:100}}>
                 <View style={{width:screenWidth*0.9,  marginTop:10, }}>
                   <Text style={{left:15}}>Email</Text>
@@ -24,8 +24,6 @@ class Login extends React.Component {
                 style={{height: 50, width:screenWidth*0.9,  color:'black', paddingHorizontal:20, margin:0, borderRadius:10, borderColor:'grey', borderWidth:1}}
                 placeholderTextColor={'grey'}
                 placeholder={'example@example.com'}
-                // value={this.props.user.email}
-                // onChangeText={input=>this.props.updateEmail(input)}
                 onChangeText={input=>this.props.updateEmail(input)}
                 value={this.props.user.email}
                 />
@@ -36,13 +34,9 @@ class Login extends React.Component {
                 style={{height: 50, width:screenWidth*0.9,  color:'black', paddingHorizontal:20, margin:0, borderRadius:10, borderColor:'grey', borderWidth:1}}
                 placeholderTextColor={'grey'}
                 placeholder={'Passcode123'}
-                // value={this.props.user.password}
                 onChangeText={input=>this.props.updatePassword(input)}
                 value={this.props.user.password}
-
-                // onChangeText={input=>this.props.updatePassword(input)}
                 secureTextEntry={true}
-
                 />
                 
                   
@@ -58,7 +52,7 @@ class Login extends React.Component {
                   </TouchableOpacity>
                   <View style={{position:'absolute', top:250, justifyContent:'center',alignItems:'center'}}>
                     <Text style={{fontSize:18}}>from</Text>
-                    <Text style={{fontSize:20, fontWeight:'bold'}}> Antoni</Text>
+                    <Text style={{fontSize:20, fontWeight:'bold'}}>Nontanun Ausungnoen</Text>
                   </View>
               </View>
               

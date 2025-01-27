@@ -1,21 +1,20 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-// import AppLoading from 'expo'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-
-
+import { createStaticNavigation, NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AppLoading from 'expo';
 import Login from '@/screens/Login';
 import Signup from '@/screens/Signup';
-const Stack = createStackNavigator();
+import { useFonts } from 'expo-font';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
-        return (
-            <NavigationContainer>
-                <Stack.Navigator>
-                    <Stack.Screen name='Login' component={Login} options={{headerShown: false, title:'Login'}}/>
-                    <Stack.Screen name='Signup' component={Signup} options={{headerShown: false}}/>
-                </Stack.Navigator>
-            </NavigationContainer>
-        )
+
+    return (
+            <Stack.Navigator>
+                <Stack.Screen name='Login' component={Login} options={{headerShown:false, title:'Login'}}/>
+                <Stack.Screen name='Signup'  component={Signup} options={{headerShown:true}}/>
+            </Stack.Navigator>
+    )
 }
